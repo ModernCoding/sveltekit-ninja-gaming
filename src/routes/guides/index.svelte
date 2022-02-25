@@ -1,8 +1,8 @@
 <script context="module">
   export async function load({ fetch }) {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts')
-
     const guides = await res.json()
+    console.log(guides)
 
     if (res.ok) {
       return {
@@ -27,7 +27,7 @@
   <ul>
     {#each guides as guide}
       <li>
-        <a href='/'>{guide.title}</a>
+        <a href={`/guides/${guide.id}`}>{guide.title}</a>
       </li>
     {/each}
   </ul>
